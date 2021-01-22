@@ -41,7 +41,7 @@ app.get('/error', (req, res) => {
   // res.set('Content-Type','application/liquid')  // use for shopify theme
   
   // console.log(path.join(__dirname, "public", "index.html"))
-  console.log(error page)
+  console.log('error page')
   res.sendFile(path.join(__dirname, "html", "return_process.html"))
 })
 
