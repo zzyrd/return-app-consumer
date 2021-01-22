@@ -32,6 +32,7 @@ app.get('/', (req, res) => {
     // res.set('Content-Type','application/liquid')  // use for shopify theme
     
     // console.log(path.join(__dirname, "public", "index.html"))
+    console.log('main page')
     res.sendFile(path.join(__dirname, "html", "index.html"))
 })
 
@@ -40,7 +41,7 @@ app.get('/error', (req, res) => {
   // res.set('Content-Type','application/liquid')  // use for shopify theme
   
   // console.log(path.join(__dirname, "public", "index.html"))
-  console.log(req)
+  console.log(error page)
   res.sendFile(path.join(__dirname, "html", "return_process.html"))
 })
 
