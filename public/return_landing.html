@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Your return process</title>
+    <style>
+      .container{
+        margin: 0px auto;
+        width: 100%;
+        max-width: 1024px;
+        padding: 10px;
+        text-align: center;
+      }
+      .row {
+        display: flex;
+      }
+      .row > div {
+        flex: 1; /*grow*/
+      }
+      .product_image {
+          width: 100%;
+          margin-right: 1em;
+          float: left;
+          max-width: 7em !important;
+      }
+      .hide_block{
+        display:none;
+      }
+      .show_block{
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Order {{orderID}}</h3>
+      <div>
+        <div class="row" style="text-align: left">
+            <div>Email: <strong>{{email}}</strong></div>
+            <div>Customer: <strong>{{customer}}</strong></div>
+        </div>
+        <br>
+        <div class="{{style_value}}">
+          <table>
+            <tbody>
+              <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Reason</th>
+                <th>Status</th>
+              </tr>
+              {{#each items}}
+                <tr>
+                  {{#each this}}
+                    <td>{{{this}}}</td>
+                  {{/each}}
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="container {{no_items_style}}">
+      <h3>You don't have eligible items to return </h3>
+    </div>
+    <div class="container {{have_items_style}}">
+      <h3>Start your return request here</h3>
+            <!-- need to render the path here -->
+      <form method="POST" action="{{next_route}}">
+        <div>
+          <input type="hidden" name="customer" value="{{customer}}">
+          <input type="hidden" name="orderID" value="{{orderID}}">
+          <input type="hidden" name="email" value="{{email}}">
+          {{{product_details_cache}}}
+          <div>
+            <table>
+              <tbody>
+                {{#each eligible_items}}
+                  <tr>
+                    {{#each this}}
+                      <td>{{{this}}}</td>
+                    {{/each}}
+                  </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <button class="btn" >Next</button>
+        </div>
+      </form>
+    </div>
+    <br>
+
+    <script>
+
+    </script>
+
+
+  </body>
+</html>

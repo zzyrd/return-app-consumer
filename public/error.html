@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Custom styles for this template -->
+    <!-- <script src="https://unpkg.com/get-form-data@3.0.0/umd/get-form-data.min.js"></script> -->
+    <style media="screen">
+      .return-container{
+        margin: 0px auto;
+        width: 100%;
+        max-width: 1024px;
+        padding: 10px;
+      }
+      .return-form{
+        margin: 0 auto;
+        max-width: 500px;
+      }
+      .return-form-control{
+        width: 100%;
+      }
+      .return-button{
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+      }
+      .img_center{
+        margin: 0 auto;
+        display: flex;
+      }
+      .alert-danger{
+        color: #842029;
+        background-color: #f8d7da;
+        border-color: #f5c2c7;
+      }
+      .alert{
+        position: relative;
+        padding: 1rem 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: .25rem;
+        text-align: center;
+      }
+    </style>
+    <title>TheReturnCompany</title>
+  </head>
+  <body>
+    <div class="return-container">
+      <div class="alert alert-danger">
+        <h4>Oops! Internal error occurs! Please start again from the initial return page</h4>
+      </div>
+      <button class="btn" type="button" onclick="f()">Back to Store</button>
+    </div>
+    <script>
+      function f(){
+        const store_url = window.location.origin
+        window.location = store_url
+      }
+    </script>
+   
+  </body>
+</html>

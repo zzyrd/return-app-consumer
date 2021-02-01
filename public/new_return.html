@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Your return process</title>
+    <style>
+      .container{
+        margin: 0px auto;
+        width: 100%;
+        max-width: 1024px;
+        padding: 10px;
+        text-align: center;
+      }
+      .row {
+        display: flex;
+      }
+      .row > div {
+        flex: 1; /*grow*/
+      }
+      .product_image {
+          width: 100%;
+          margin-right: 1em;
+          float: left;
+          max-width: 7em !important;
+      }
+      .hide_block{
+        display:none;
+      }
+      .show_block{
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Order {{orderID}}</h3>
+      <br>
+      <h3 class="{{no_item_selected}}">You need to select at least one item to proceed!</h3>
+      <form class="{{have_item_selected}}" method="POST" action="{{next_route}}" enctype="multipart/form-data">
+        <div>
+          <input type="hidden" name="customer" value="{{customer}}">
+          <input type="hidden" name="orderID" value="{{orderID}}">
+          <input type="hidden" name="email" value="{{customer_email}}">
+          {{{product_details_cache}}}
+          <table>
+            <tbody>
+              <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+              </tr>
+              {{#each eligible_items}}
+                <tr>
+                  {{#each this}}
+                    <td>{{{this}}}</td>
+                  {{/each}}
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+        <div style="text-align: left">
+          <br>
+            <h5>Why would you like to return?</h5>
+            <input type="radio" id="option1" name="Q1" value="Looks different to image on site">
+            <label for="option1">Looks different to image on site</label><br>
+            <input type="radio" id="option2" name="Q1" value="Arrived too late">
+            <label for="option2">Arrived too late</label><br>
+            <input type="radio" id="option3" name="Q1" value="Poor quality">
+            <label for="option3">Poor quality</label><br>
+            <input type="radio" id="option4" name="Q1" value="Does not suit our home">
+            <label for="option4">Does not suit our home</label><br>
+            <input type="radio" id="option5" name="Q1" value="Incorrect item received">
+            <label for="option5">Incorrect item received</label><br>
+            <input type="radio" id="option6" name="Q1" value="Item damaged on arrival">
+            <label for="option6">Item damaged on arrival</label><br>
+          <br>
+            <h5>Is the product still within the original package?</h5>
+            <input type="radio" id="Q2_option1" name="Q2" value="Yes">
+            <label for="Q2_option1">Yes</label>
+            <input type="radio" id="Q2_option2" name="Q2" value="No">
+            <label for="Q2_option2">No</label><br>
+          <br>
+            <h5>Would you like us to help you with packing? (additional cost $100 will apply)</h5>
+            <input type="radio" id="Q3_option1" name="Q3" value="Yes">
+            <label for="Q3_option1">Yes</label>
+            <input type="radio" id="Q3_option2" name="Q3" value="No">
+            <label for="Q3_option2">No</label><br>
+          <br>
+            <h5>Would you like us to pickup inside your home? (additional cost $150 will apply)</h5>
+            <input type="radio" id="Q4_option1" name="Q4" value="Yes">
+            <label for="Q4_option1">Yes</label>
+            <input type="radio" id="Q4_option2" name="Q4" value="No">
+            <label for="Q4_option2">No</label><br>
+          <br>
+            <input type="radio" id="confirm_option" name="question_confirm" value="I confirm the item is in good condition">
+            <label for="confirm_option">I confirm the item is in good condition</label><br>
+
+          <hr> <!-- another section-->
+            <label for="img">Select image:</label>
+            <input type="file" id="customer_photos" name="customer_photos" accept="image/png, image/jpeg" multiple>
+          <br>
+          <br>
+            <input type="radio" id="image_option" name="image_confirm" value="I confirm the photos are showing the actual condition of the items">
+            <label for="image_option">I confirm the photos are showing the actual condition of the items</label><br>
+
+
+          <hr> <!-- another section-->
+            <button class="btn">submit</button>
+        </div>
+
+      </form>
+    </div>
+    <br>
+
+    <script>
+      
+    </script>
+
+
+  </body>
+</html>

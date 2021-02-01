@@ -1,14 +1,74 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Express App</title>
-    <link rel="stylesheet" href="/css/styles.css" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Custom styles for this template -->
+    <style media="screen">
+      .return-container{
+        margin: 0px auto;
+        width: 100%;
+        max-width: 1024px;
+        padding: 10px;
+      }
+      .return-form{
+        margin: 0 auto;
+        max-width: 500px;
+      }
+      .return-form-control{
+        width: 100%;
+      }
+      .return-button{
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+      }
+      .img_center{
+        margin: 0 auto;
+        display: flex;
+      }
+      .alert-danger{
+        color: #842029;
+        background-color: #f8d7da;
+        border-color: #f5c2c7;
+      }
+      .alert{
+        position: relative;
+        padding: 1rem 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: .25rem;
+        text-align: center;
+      }
+    </style>
+    <title>TheReturnCompany</title>
   </head>
   <body>
-    <button type="button" class="btn">Display today's date</button>
-    <div class="date"></div>
-    <script src="/js/script.js"></script>
+    <div class="return-container">
+      <form class="return-form" id="productForm" method="POST" action="{{url_path}}">
+        <div class="alert alert-danger" role="alert" id="error" style="display: none">
+          <strong>Oops! </strong><span id="error_text"></span>
+        </div>
+        <br>
+        <div >
+          <img class="img_center" src="https://trc-mail-assets.s3.amazonaws.com/logo.png" alt="">   
+        </div>
+        <div >
+          <label for="inputEmail">Email address</label>
+          <input class="return-form-control" type="email" name="inputEmail" id="inputEmail"  placeholder="Email address" required>
+        </div>
+        <div >
+          <label for="inputOrder">Order </label>
+          <input class="return-form-control" type="number" min="1001" name="inputOrder" id="inputOrder"  placeholder="Order" required>
+        </div>
+        <div>
+          <input class="return-form-control" type="text" name="inputShop" id="inputShop" value = {{shop}} style="display: none">
+        </div>
+        <button class="btn return-button" form="productForm" type="submit" >Start</button>
+        <p id="urlId" style="display: none">{{url_path}}</p>
+      </form>
+    </div>
+   
   </body>
 </html>

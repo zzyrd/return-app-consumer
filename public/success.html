@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Custom styles for this template -->
+    <!-- <script src="https://unpkg.com/get-form-data@3.0.0/umd/get-form-data.min.js"></script> -->
+    <style media="screen">
+      .return-container{
+        margin: 0px auto;
+        width: 100%;
+        max-width: 1024px;
+        padding: 10px;
+      }
+      .return-form{
+        margin: 0 auto;
+        max-width: 500px;
+      }
+      .return-form-control{
+        width: 100%;
+      }
+      .return-button{
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+      }
+      .img_center{
+        margin: 0 auto;
+        display: flex;
+      }
+      .alert-success{
+        color: #155724;
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+      }
+      .alert{
+        position: relative;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: .25rem;
+        padding: 1rem 1rem;
+        text-align: center;
+      }
+      .alert-heading {
+          color: inherit;
+      }
+    </style>
+    <title>TheReturnCompany</title>
+  </head>
+  <body>
+    <div class="return-container">
+      <div class="alert alert-success">
+        <h4>Successful! A confirmation email will be sent to your email address shortly!</h4>
+      </div>
+      <button class="btn" type="button" onclick="f()">Back to Store</button>
+    </div>
+    <script>
+      function f(){
+        const store_url = window.location.origin
+        window.location = store_url
+      }
+    </script>
+  </body>
+</html>
