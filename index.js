@@ -19,6 +19,7 @@ const port = process.env.PORT || 3000
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
+// for AWS load balancer health checking
 app.get('/healthCheck', (req, res)=>{
   res.status(200).json({msg:'OK'})
 })
