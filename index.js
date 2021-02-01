@@ -19,6 +19,9 @@ const port = process.env.PORT || 3000
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
+app.get('/healthCheck', (req, res)=>{
+  res.status(200).json({msg:'OK'})
+})
 // handle index page
 app.get('/', verify_shopify, (req, res) => {
   const file_path = path.join(__dirname, "public", "index.html")
